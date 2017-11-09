@@ -1,5 +1,5 @@
 from flask_script import Manager
-from songbase.py import app
+from songbase import app
 
 manager = Manager(app)
 

@@ -10,6 +10,16 @@ def home():
 def get_user(name):
     return '<h1>hello %s your age is %d</h1>' % (name,21)
 
+@app.route('/songs')
+def get_all_songs():
+    songs = [
+        'S.O.S',
+        'Jesus Take the Wheel',
+        'Help!'
+
+    ]
+    return render_template('songs.html')
+
 
 if __name__ == '__main__':
     app.run()
