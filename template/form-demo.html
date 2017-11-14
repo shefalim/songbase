@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+{% extends "home-base.html" %}
+
+{% block title%}
+  homepage
+{% endblock %}
+
+{% block page_content %}
+    <h1>this is form demo page</h1>
+    <form action= "/form-demo" method = "get">
+      Whats your name? <br>
+      <input type="text" name="first_name" value=""> <br>
+      <input type="submit" name="" value="Submit">
+{% endblock %}
