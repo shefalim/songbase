@@ -1,7 +1,18 @@
 from flask import Flask, render_template, request, url_for, session
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'asdwegiojwoeifja;wg'
+from flask_sqlalchemy import SQLAlchemy
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+db = SQLAlchemy(app)
+
+# define database tables
+class Artist(db.Model):
+    __tablename__ = 'artists'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    about = db.Column(db.Text)
+    songs = db.relationship('Song', backref='artist')
 
 @app.route('/')
 def home():

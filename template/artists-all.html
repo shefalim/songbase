@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+{% extends "home-base.html" %}
+
+
+{% block title%}
+  All Artsits
+{% endblock %}
+
+{% block page_content %}
+    <h1>this page shows all artists</h1>
+    <h3> hello {{first_name}}</h3>
+    {% for artit in artists %}
+    <h3>{{artist.name}}</h3>
+    <p>{{artist.about}}</p>
+    {% endfor %}
+{% endblock %}
