@@ -14,6 +14,11 @@ class Artist(db.Model):
     about = db.Column(db.Text)
     songs = db.relationship('Song', backref='artist')
 
+@app.route('/artists')
+def show_all_artists():
+    artists = Artist.query.all()
+    return render_template('artist-all.html', artists=artists)
+
 @app.route('/')
 def home():
     return '<h1>hello world!!!!</h1>'
