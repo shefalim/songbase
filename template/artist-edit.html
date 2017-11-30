@@ -9,7 +9,7 @@
 
 {% block page_content %}
     <h1>this page uses a form to add all artists</h1>
-    <form action="/artist-add" method="get">
+    <form action="/artist-edit{{artist.id}}" method="post">
     What's your name?<br>
     <input type="text" name="name"><br><br>
     <input type="submit" value="Submit">
